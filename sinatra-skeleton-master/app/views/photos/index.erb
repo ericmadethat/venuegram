@@ -1,11 +1,11 @@
 
 
 
-<h1>Search for a location by lat/lng with a radius of 5000m</h1>
-  <%= for location in client.location_search("49.28184","-123.10816","5000") %>
-    <li> <%= "#{location.name}" %> 
-    <a href='https://www.google.com/maps/preview/@#{location.latitude},
-    #{location.longitude},19z'>Map</a></li>"
+<h1>Photos near Launch Academy</h1>
+  <%= @instagram_images.each do |media_item| %>
+    <li> <img src='<%='#{media_item.images.low_resolution.url}'%>'</li>
   <%=end %>
+
+
 
 
