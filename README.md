@@ -1,2 +1,3 @@
 # venuegram
-midterm project 
+midterm project
+Some changes
