@@ -114,6 +114,8 @@ function initialize() {
     var found_lat = place.geometry.location.k;
     console.log('D - latitude', found_lat);
     console.log('K - longitude', found_long);
+    
+
     function latLongAjax(lat,lon){
       console.log("doing ajax call");
       $.ajax({
@@ -123,14 +125,23 @@ function initialize() {
       }).done(function(response){
         console.log("done");
         console.log(response);
-        $.each(response, function(i, pic){          
-          $('.polaroid').append(pic);
+        $('.polaroid').remove();
+        $('.image').remove();         
+        $.each(response, function(i, pic){ 
+          $('.col-sm-4').append('<div class="polaroid"> <div class="image"' + (i+1) + '">' + pic +' </div></div>');
+        
         });
         
+
+
+
+
+
         
       })
     };
     latLongAjax(found_lat,found_long);
+    
     if (place.address_components) {
       address = [
         (place.address_components[0] && place.address_components[0].short_name || ''),
@@ -166,20 +177,11 @@ google.maps.event.addDomListener(window, 'load', initialize);
   <body>
     <input id="pac-input" class="controls" type="text"
         placeholder="Enter a location">
-    <div id="type-selector" class="controls">
-      <input type="radio" name="type" id="changetype-all" checked="checked">
-      <label for="changetype-all">All</label>
 
-      <input type="radio" name="type" id="changetype-establishment">
-      <label for="changetype-establishment">Establishments</label>
-
-      <input type="radio" name="type" id="changetype-address">
-      <label for="changetype-address">Addresses</label>
-
-      <input type="radio" name="type" id="changetype-geocode">
-      <label for="changetype-geocode">Geocodes</label>
-    </div>
     <div id="map-canvas"></div>
-    <div class="polaroid"></div>
+    <div class="row">
+      <div class="col-sm-4">
+      </div>
+    </div>
   </body>
 </html>
