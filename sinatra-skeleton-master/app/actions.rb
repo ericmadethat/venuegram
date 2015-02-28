@@ -1,5 +1,6 @@
 # Homepage (Root path)
 enable :sessions
+require "sinatra/json"
 
 CALLBACK_URL = "http://localhost:3000"
 
@@ -10,12 +11,21 @@ Instagram.configure do |config|
   #config.client_ips = '<Comma separated list of IPs>'
 end
 
+
+get '/map' do 
+  erb :map 
+end
+
+get '/autocomplete' do 
+  erb :autocomplete 
+end
+
 # get "/" do
 #   '<a href="/oauth/connect">Connect with Instagram</a>'
 #   erb :index
 # end
 get "/" do
-
+  index.erb
 end
 
 # get "/photos/index" do
@@ -36,19 +46,20 @@ end
 
 
 get "/photos/index" do
-  long = params[:long]
+  lon = params[:lon]
   lat = params[:lat]
   client = Instagram.client(:access_token => session[:access_token])
   html = "<h1>Here are photos around Launch Academy</h1>"
   photos_array = []
-  for media_item in client.media_search(lat,long, count: 30)
+  for media_item in client.media_search(lat,lon, count: 30)
 
     # index += 1
     photos_array << "<img src='#{media_item.images.low_resolution.url}'>"
     # binding.pry if index == 0
     # html << "<pre>#{media_item.inspect}</pre>"
   end
-  photos_array
+  # photos_array
+  json photos_array
 end
 # get "/photos/index" do
 #   client = Instagram.client(:access_token => session[:access_token])
@@ -63,3 +74,4 @@ end
   # end
   # html
 # end
+
