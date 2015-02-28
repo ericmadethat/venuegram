@@ -10,12 +10,8 @@ Instagram.configure do |config|
   #config.client_ips = '<Comma separated list of IPs>'
 end
 
-# get "/" do
-#   '<a href="/oauth/connect">Connect with Instagram</a>'
-#   erb :index
-# end
 get "/" do
-
+  erb :index
 end
 
 # get "/photos/index" do
