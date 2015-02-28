@@ -2238,7 +2238,7 @@ output {
   padding: 6px 12px;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #555555;
+  color: #F0F0F0
   background-color: #ffffff;
   background-image: none;
   border: 1px solid #cccccc;
@@ -3933,7 +3933,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 .jumbotron {
   padding: 30px 15px;
-  margin-bottom: 30px;
+/*  margin-bottom: 30px;*/
   color: #ffffff;
   background-color: #eeeeee;
 }
@@ -3959,7 +3959,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding: 148px 0;
+    padding: 50px 0;
   }
   .container .jumbotron,
   .container-fluid .jumbotron {
