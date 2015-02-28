@@ -114,6 +114,23 @@ function initialize() {
     var found_lat = place.geometry.location.k;
     console.log('D - latitude', found_lat);
     console.log('K - longitude', found_long);
+    function latLongAjax(lat,lon){
+      console.log("doing ajax call");
+      $.ajax({
+        url: '/photos/index',
+        method: 'GET',
+        data: {lat: lat, lon: lon}
+      }).done(function(response){
+        console.log("done");
+        console.log(response);
+        $.each(response, function(i, pic){
+          $('.polaroid').append(pic);
+        });
+        
+        
+      })
+    };
+    latLongAjax(found_lat,found_long);
     if (place.address_components) {
       address = [
         (place.address_components[0] && place.address_components[0].short_name || ''),
@@ -163,5 +180,6 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <label for="changetype-geocode">Geocodes</label>
     </div>
     <div id="map-canvas"></div>
+    <div class="polaroid"></div>
   </body>
 </html>
