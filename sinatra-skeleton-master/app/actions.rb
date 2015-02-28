@@ -12,6 +12,10 @@ Instagram.configure do |config|
 end
 
 
+get "/" do
+  erb :index
+end
+
 get '/map' do 
   erb :map 
 end
@@ -20,13 +24,7 @@ get '/autocomplete' do
   erb :autocomplete 
 end
 
-# get "/" do
-#   '<a href="/oauth/connect">Connect with Instagram</a>'
-#   erb :index
-# end
-get "/" do
-  index.erb
-end
+
 
 # get "/photos/index" do
 #   client = Instagram.client(:access_token => session[:access_token])
