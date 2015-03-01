@@ -49,7 +49,7 @@ get "/photos/index" do
   client = Instagram.client(:access_token => session[:access_token])
   html = "<h1>Here are photos around Launch Academy</h1>"
   photos_array = []
-  for media_item in client.media_search(lat,lon, count: 9)
+  for media_item in client.media_search(lat,lon, count: 12)
 
     # index += 1
     photos_array << "<img src='#{media_item.images.low_resolution.url}'>"
