@@ -42,6 +42,7 @@
 
       .pac-container {
         font-family: Roboto;
+        margin: 0 auto;
       }
 
       #type-selector {
@@ -61,7 +62,7 @@
       function initialize() {
       var mapOptions = {
         center: new google.maps.LatLng(-33.8688, 151.2195),
-        zoom: 13
+        zoom: 13, scrollwheel: false
       };
       var map = new google.maps.Map(document.getElementById('map-canvas'),
         mapOptions);
@@ -70,8 +71,8 @@
           document.getElementById('pac-input'));
 
       var types = document.getElementById('type-selector');
-      map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-      map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
+      // map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
+      // map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
 
       var autocomplete = new google.maps.places.Autocomplete(input);
       autocomplete.bindTo('bounds', map);
@@ -127,15 +128,7 @@
             $('.image').remove();         
             $.each(response, function(i, pic){ 
               $('.polaroid-container').append('<div class="polaroid"> <div class="image"' + (i+1) + '">' + pic +' </div></div>');
-            
             });
-            
-
-
-
-
-
-            
           })
         };
         latLongAjax(found_lat,found_long);
@@ -155,19 +148,17 @@
       // Sets a listener on a radio button to change the filter type on Places
       // Autocomplete.
       function setupClickListener(id, types) {
-        var radioButton = document.getElementById(id);
+        // var radioButton = document.getElementById(id);
         google.maps.event.addDomListener(radioButton, 'click', function() {
           console.log('types',types )
           autocomplete.setTypes(types);
         });
       }
-
-      setupClickListener('changetype-all', []);
-      setupClickListener('changetype-address', ['address']);
-      setupClickListener('changetype-establishment', ['establishment']);
-      setupClickListener('changetype-geocode', ['geocode']);
+      // setupClickListener('changetype-all', []);
+      // setupClickListener('changetype-address', ['address']);
+      // setupClickListener('changetype-establishment', ['establishment']);
+      // setupClickListener('changetype-geocode', ['geocode']);
         }
-
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
@@ -176,10 +167,11 @@
     <div class="jumbotron">
       <header class="container text-center">
         <h1>Venuegram</h1>
-        <input type="text" class="form-control search-bar" placeholder="Enter location and press return">
+        <p>
+        <input id="pac-input" class="controls" type="text" placeholder="Enter a location"></p>
+        <!-- <input type="text" class="form-control search-bar" placeholder="Enter location and press return"> -->
       </header>
     </div>
-    <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
     <div id="map-canvas"></div>
     <div class="row polaroid-container">
     </div>

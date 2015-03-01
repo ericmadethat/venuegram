@@ -81,7 +81,8 @@ html, body, #map-canvas {
 }
 
 #pac-input {
-  background-color: #fff;
+  color: black;
+  /*background-color: #fff;*/
   font-family: Roboto;
   font-size: 15px;
   font-weight: 300;
