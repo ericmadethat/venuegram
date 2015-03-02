@@ -23,7 +23,7 @@ get "/photos/index" do
   client = Instagram.client(:access_token => session[:access_token])
   photos_array = []
   for media_item in client.media_search(lat,lon, count: 12)
-    photos_array << ["<img src='#{media_item.images.low_resolution.url}'>", "#{media_item.link}"]
+    photos_array << ["<img src='#{media_item.images.low_resolution.url}'>", "#{media_item.link}", "#{media_item.user.username}"]
   end
   json photos_array
 end

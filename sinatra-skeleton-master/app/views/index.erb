@@ -75,8 +75,8 @@
             $('.polaroid').remove();
             $('.image').remove();         
             $.each(response, function(i, media_item){ 
-              console.log(media_item)
-              $('.polaroid-container').append('<div class="polaroid animated fadeInUp"><a href="' + media_item[1] + '" target="_blank"><div class="image animated fadeInUp"' + (i+1) + '">' + media_item[0] +'<h5>Username</h5> <p class="animated fadeInUp description"> This is the description, we should probably limit it </p></div></a></div>');
+              console.log(media_item[3]);
+              $('.polaroid-container').append('<div class="polaroid animated fadeInUp"><a href="' + media_item[1] + '" target="_blank"><div class="image animated fadeInUp"' + (i+1) + '">' + media_item[0] +'<h5> ' + media_item[2] + '</h5> <p class="animated fadeInUp description"></p></div></a></div>');
             });
           })
         };
