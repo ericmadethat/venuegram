@@ -35,6 +35,8 @@
         infowindow.close();
         marker.setVisible(false);
         var place = autocomplete.getPlace();
+        var firstResult = $(".pac-container .pac-item:first").text();
+        console.log(firstResult)
         if (!place.geometry) {
           return;
         }
@@ -95,18 +97,19 @@
 
       // Sets a listener on a radio button to change the filter type on Places
       // Autocomplete.
-      function setupClickListener(id, types) {
-        // var radioButton = document.getElementById(id);
-        google.maps.event.addDomListener(radioButton, 'click', function() {
-          console.log('types',types )
-          autocomplete.setTypes(types);
-        });
-      }
+      // function setupClickListener(id, types) {
+      //   // var radioButton = document.getElementById(id);
+      //   google.maps.event.addDomListener(radioButton, 'click', function() {
+      //     console.log('types',types )
+      //     autocomplete.setTypes(types);
+      //   });
+      // }
       // setupClickListener('changetype-all', []);
       // setupClickListener('changetype-address', ['address']);
       // setupClickListener('changetype-establishment', ['establishment']);
       // setupClickListener('changetype-geocode', ['geocode']);
         }
+
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
