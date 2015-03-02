@@ -3959,7 +3959,7 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 @media screen and (min-width: 768px) {
   .jumbotron {
-    padding: 50px 0;
+    padding: 100px 0;
   }
   .container .jumbotron,
   .container-fluid .jumbotron {
