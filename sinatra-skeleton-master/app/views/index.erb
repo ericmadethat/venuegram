@@ -9,6 +9,7 @@
 
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
     <script>
+
       function initialize() {
       var mapOptions = {
         center: new google.maps.LatLng(-33.8688, 151.2195),
@@ -79,6 +80,11 @@
               $('.polaroid-container').append('<div class="polaroid animated fadeInUp"><a href="' + media_item[1] + '" target="_blank"><div class="image animated fadeInUp"' + (i+1) + '">' + media_item[0] +'<h5> ' + media_item[2] + '</h5> <p class="animated fadeInUp description"></p></div></a></div>');
             });
           })
+            var offset = 20;
+            $('html, body').animate({
+              scrollTop: $("#scroll-target").offset().top + offset
+            }, 2000);
+            
         };
 
         latLongAjax(found_lat,found_long);
@@ -110,6 +116,7 @@
         }
 
       google.maps.event.addDomListener(window, 'load', initialize);
+
     </script>
   </head>
   
@@ -121,7 +128,7 @@
       </header>
     </div>
     <div id="map-canvas"></div>
-    <div class="row polaroid-container">
+    <div class="row polaroid-container" id="scroll-target">
     </div>
   </body>
 </html>
