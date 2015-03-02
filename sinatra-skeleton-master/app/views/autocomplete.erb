@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -19,8 +21,6 @@
           document.getElementById('pac-input'));
 
       var types = document.getElementById('type-selector');
-      // map.controls[google.maps.ControlPosition.TOP_RIGHT].push(input);
-      // map.controls[google.maps.ControlPosition.TOP_LEFT].push(types);
 
       var autocomplete = new google.maps.places.Autocomplete(input);
       autocomplete.bindTo('bounds', map);
@@ -35,6 +35,7 @@
         infowindow.close();
         marker.setVisible(false);
         var place = autocomplete.getPlace();
+        console.log(autocomplete);
         if (!place.geometry) {
           return;
         }
@@ -61,7 +62,6 @@
         var found_lat = place.geometry.location.k;
         console.log('D - latitude', found_lat);
         console.log('K - longitude', found_long);
-        
 
         function latLongAjax(lat,lon){
           console.log("doing ajax call");
@@ -75,12 +75,12 @@
             $('.polaroid').remove();
             $('.image').remove();         
             $.each(response, function(i, pic){ 
-              $('.polaroid-container').append('<div class="polaroid"> <div class="image"' + (i+1) + '">' + pic +'<h5>Username</h5> <p class="description"> This is the description, we should probably limit it </p></div></div>');
+              $('.polaroid-container').append('<div class="polaroid animated fadeInUp"> <div class="image animated fadeInUp"' + (i+1) + '">' + pic +'<h5>Username</h5> <p class="animated fadeInUp description"> This is the description, we should probably limit it </p></div></div>');
             });
           })
         };
+
         latLongAjax(found_lat,found_long);
-        
         if (place.address_components) {
           address = [
             (place.address_components[0] && place.address_components[0].short_name || ''),
@@ -96,7 +96,7 @@
       // Sets a listener on a radio button to change the filter type on Places
       // Autocomplete.
       function setupClickListener(id, types) {
-        // var radioButton = document.getElementById(id);
+      //   // var radioButton = document.getElementById(id);
         google.maps.event.addDomListener(radioButton, 'click', function() {
           console.log('types',types )
           autocomplete.setTypes(types);
@@ -107,6 +107,7 @@
       // setupClickListener('changetype-establishment', ['establishment']);
       // setupClickListener('changetype-geocode', ['geocode']);
         }
+
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
@@ -114,10 +115,8 @@
   <body>
     <div class="jumbotron">
       <header class="container text-center">
-        <h1>Venuegram</h1>
-        <p class="search-text">
+        <h1 class="animated fadeInUp">Venuegram</h1>
         <input id="pac-input" class="controls" type="text" placeholder="Enter a location"></p>
-        <!-- <input type="text" class="form-control search-bar" placeholder="Enter location and press return"> -->
       </header>
     </div>
     <div id="map-canvas"></div>
