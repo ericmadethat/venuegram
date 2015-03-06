@@ -13,16 +13,12 @@ get "/" do
   erb :index
 end
 
-get '/autocomplete' do 
-  erb :autocomplete 
-end
-
 get "/photos/index" do
   lon = params[:lon]
   lat = params[:lat]
   client = Instagram.client(:access_token => session[:access_token])
   photos_array = []
-  for media_item in client.media_search(lat,lon, count: 12, distance: 20)
+  for media_item in client.media_search(lat,lon, count: 12, distance: 80)
     photos_array << ["<img src='#{media_item.images.low_resolution.url}'>", "#{media_item.link}", "#{media_item.user.username}"]
   end
   json photos_array

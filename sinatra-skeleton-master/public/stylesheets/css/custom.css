@@ -3,15 +3,21 @@
   height: 400px;
 }
 
+#credits {
+  color: #cceee8;
+  text-align: center;
+  margin: auto;
+  font-size: 7pt;
+}
+
 .jumbotron h1 {
-/*  text-align: center;*/
   font-family: 'Leckerli One', cursive;
   margin-top: 0px;
   font-size: 60pt;
 }
 
 .polaroid-container {
-  padding: 30px 30px 0;
+  padding: 25px 30px 0;
   text-align: center;
   margin: 0;  
 }
@@ -22,7 +28,6 @@
 }
 
 #scroll-target {
-  
 }
 
 h5 {
@@ -31,7 +36,6 @@ h5 {
 }
 
 .polaroid {
-  /*height: 370px;*/
   background-color: #F5F5F5;
   display: inline-block;
   margin-bottom: 3%;
@@ -72,7 +76,7 @@ h5 {
 ==============================*/
     
 html, body, #map-canvas {
-  height: 300px;
+  height: 340px;
   width: 100%;
   margin: 0px;
   padding: 0px
@@ -109,29 +113,6 @@ html, body, #map-canvas {
   border-radius: 10px;
 }
 
-
 #pac-input:focus {
   border: 2px solid #F7F7F7;
- /* border-color: #4d90fe;*/
-/*  margin-left: -1px;
-  padding-left: 14px;   Regular padding-left + 1. 
-  width: 350px; */
 }
-
-/*.pac-container {
-  font-family: Roboto;
-}*/
-
-/*#type-selector {
-  color: #fff;
-  background-color: #4d90fe;
-  padding: 5px 11px 0px 11px;
-}*/
-/*
-#type-selector label {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
-}*/
-
-
