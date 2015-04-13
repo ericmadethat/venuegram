@@ -1,5 +1,5 @@
 # Venuegram
-A web app that uses Google maps to return Instagram photos near the searched location. 
+A web app that uses Google maps to return Instagram photos near the searched location.  
 
 # Built with:
 - Instagram API
